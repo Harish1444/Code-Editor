@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Code Editor</title>
+    <link rel="icon" href="web_logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0f5aa9e321.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <i class="fa-solid fa-code fa-beat-fade"></i>
+    <h1>Code Editor</h1>
+    <a href="signup.html"><button class="buttonn">Sign Up</button></a>
+    <a href="login.html"><button class="buttonn">Login</button></a>
+    <button class="profile"><i class="fa-solid fa-user fa-sm"></i></button>
+    <div class="container">
+        <div class="left">
+            <label for="html">&nbsp;<i class="fa-brands fa-html5"></i>&nbsp;HTML</label>
+            <textarea name="html" id="html" cols="30" rows="10" "></textarea>
+
+            <label for="css">&nbsp;<i class="fa-brands fa-css3-alt"></i>&nbsp;CSS</label>
+            <textarea name="css" id="css" cols="30" rows="10" "></textarea>
+
+            <label for="js">&nbsp;<i class="fa-brands fa-js"></i>&nbsp;JAVASCRIPT</label>
+            <textarea name="js" id="js" cols="30" rows="10" "></textarea>
+
+            <button class="button" style="vertical-align:middle" onclick="run()"><span>RUN </span></button>
+
+        </div>
+        <div class="right">
+            <label>&nbsp;<i class="fa-solid fa-play"></i>&nbsp;OUTPUT</label>
+            <iframe id="output"></iframe>
+        </div>
+    </div>
+    <script>
+        function run(){
+            let html=document.getElementById("html").value;
+            let css=document.getElementById("css").value;
+            let js=document.getElementById("js").value;
+            let output=document.getElementById("output");
+
+            output.contentDocument.body.innerHTML=html+"<style>"+css+"</style>";
+            output.contentWindow.eval(js);
+
+        }
+    </script>
+
+    <div class="footer">
+        <p>&copy; 2024 Web Code Editor</p>
+    </div>
+
+</body>
+</html>
